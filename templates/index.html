@@ -1,0 +1,63 @@
+cat > templates/index.html <<'HTML'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f2f5f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f3c88;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        th {
+            background: #1f3c88;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #edf2fa;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Information System</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Marks</th>
+        </tr>
+
+        {% for student in students %}
+        <tr>
+            <td>{{ student['id'] }}</td>
+            <td>{{ student['name'] }}</td>
+            <td>{{ student['department'] }}</td>
+            <td>{{ student['marks'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+HTML
